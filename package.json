@@ -2,14 +2,16 @@
   "name": "dsa-graphs",
   "version": "1.0.0",
   "description": "",
-  "main": "graph.js",
+  "main": "graph.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^24.1.0"
+    "@types/jest": "^29.5.4",
+    "jest": "^29.6.4",
+    "ts-jest": "^29.1.1"
   }
 }

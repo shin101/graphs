@@ -1,11 +1,11 @@
-const { Graph, Node } = require("./graph");
+import { Graph, Node } from "./graph";
 
-describe("addVertex", function() {
-  it("should add a key in the adjacency", function() {
-    let graph = new Graph();
-    let a = new Node("A");
-    let b = new Node("B");
-    let c = new Node("C");
+describe("addVertex", function () {
+  it("should add a key in the adjacency", function () {
+    let graph: Graph = new Graph();
+    let a: Node = new Node("A");
+    let b: Node = new Node("B");
+    let c: Node = new Node("C");
     expect(graph.nodes.has(a)).toBe(false);
     expect(graph.nodes.has(b)).toBe(false);
     expect(graph.nodes.has(c)).toBe(false);
@@ -18,12 +18,12 @@ describe("addVertex", function() {
   });
 });
 
-describe("addVertices", function() {
-  it("should add multiple keys in the adjacency", function() {
-    let graph = new Graph();
-    let a = new Node("A");
-    let b = new Node("B");
-    let c = new Node("C");
+describe("addVertices", function () {
+  it("should add multiple keys in the adjacency", function () {
+    let graph: Graph = new Graph();
+    let a: Node = new Node("A");
+    let b: Node = new Node("B");
+    let c: Node = new Node("C");
     expect(graph.nodes.has(a)).toBe(false);
     expect(graph.nodes.has(b)).toBe(false);
     expect(graph.nodes.has(c)).toBe(false);
@@ -34,27 +34,31 @@ describe("addVertices", function() {
   });
 });
 
-describe("addEdge", function() {
-  it("should add the appropriate edges to the adjacency list", function() {
-    let graph = new Graph();
-    let a = new Node("A");
-    let b = new Node("B");
-    let c = new Node("C");
-    let d = new Node("D");
+describe("addEdge", function () {
+  it("should add the appropriate edges to the adjacency list", function () {
+    let graph: Graph = new Graph();
+    let a: Node = new Node("A");
+    let b: Node = new Node("B");
+    let c: Node = new Node("C");
+    let d: Node = new Node("D");
     graph.addVertices([a, b, c, d]);
     graph.addEdge(a, b);
     graph.addEdge(a, c);
     graph.addEdge(b, d);
     graph.addEdge(c, d);
-    expect(a.adjacent).toContain(b, c);
-    expect(b.adjacent).toContain(a, d);
-    expect(c.adjacent).toContain(a, d);
-    expect(d.adjacent).toContain(b, c);
+    expect(a.adjacent).toContain(c);
+    expect(a.adjacent).toContain(c);
+    expect(b.adjacent).toContain(a);
+    expect(b.adjacent).toContain(d);
+    expect(d.adjacent).toContain(b);
+    expect(d.adjacent).toContain(c);
+    expect(c.adjacent).toContain(a);
+    expect(c.adjacent).toContain(d);
   });
 });
 
-describe("removeEdge", function() {
-  it("should remove the vertices from the adjacency list", function() {
+describe("removeEdge", function () {
+  it("should remove the vertices from the adjacency list", function () {
     let graph = new Graph();
     let a = new Node("A");
     let b = new Node("B");
@@ -74,8 +78,8 @@ describe("removeEdge", function() {
   });
 });
 
-describe("removeVertex", function() {
-  it("should remove the vertex as well as any edges", function() {
+describe("removeVertex", function () {
+  it("should remove the vertex as well as any edges", function () {
     let graph = new Graph();
     let a = new Node("A");
     let b = new Node("B");
@@ -97,8 +101,8 @@ describe("removeVertex", function() {
   });
 });
 
-describe("DFS", function() {
-  it("return an array of the nodes searched using DFS", function() {
+describe("DFS", function () {
+  it("return an array of the nodes searched using DFS", function () {
     let graph = new Graph();
     let S = new Node("S");
     let P = new Node("P");
@@ -146,8 +150,8 @@ describe("DFS", function() {
   });
 });
 
-describe("BFS", function() {
-  it("should return an array of the nodes searched using BFS", function() {
+describe("BFS", function () {
+  it("should return an array of the nodes searched using BFS", function () {
     let graph = new Graph();
     let S = new Node("S");
     let P = new Node("P");
@@ -194,7 +198,7 @@ describe("BFS", function() {
       "Y",
       "R",
       "W",
-      "T"
+      "T",
     ]);
   });
 });
